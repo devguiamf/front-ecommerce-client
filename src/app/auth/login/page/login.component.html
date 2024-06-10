@@ -1,0 +1,6 @@
+<div class="background z-0 w-full h-full absolute bottom-0 left-0">
+  <app-login-form
+    [loading]="loading"
+    (sendLoginEvent)="receiveLoginEvent($event)"
+  ></app-login-form>
+</div>

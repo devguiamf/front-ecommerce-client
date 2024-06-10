@@ -1,0 +1,27 @@
+<app-header
+  [userLogged]="userLogged"
+  [showSubNav]="false"
+>
+</app-header>
+
+<div class="bg-gray-100 p-10 h-full">
+
+  <div class="w-full bg-white">
+    @if(hasItemInCart) {
+      <app-list-cart-items
+        [cartItems]="cartItems"
+        (removeItemEvent)="removeItem($event)"
+        (selectItemToBuyEvent)="selectItemToBuy($event)"
+      >
+      </app-list-cart-items>
+
+      <div class="flex justify-end p-5">
+        <button class="btn-add-cart" (click)="buyItems()">Continuar</button>
+      </div>
+
+    } @else{
+      <app-empty-cart-message></app-empty-cart-message>
+    }
+  </div>
+
+</div>

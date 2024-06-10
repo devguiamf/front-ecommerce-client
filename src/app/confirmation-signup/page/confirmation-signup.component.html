@@ -1,0 +1,43 @@
+@if(loading){
+    <app-spinner></app-spinner>
+}
+
+@if(success){
+    <div class="flex h-full justify-center items-center bg-green-200">
+
+        <mat-card class="p-5">
+            
+            <mat-card-header class="flex items-center justify-center flex-col-reverse">
+                <img src="../../../public/icons/check-mail.png" class="mb-5" width="100">
+                <mat-card-title>Email Confirmado com sucesso!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mt-10 text-center">
+                <p>Seu email foi confirmado com sucesso!</p>
+                <p>Agora você pode aproveitar todas as funcionalidades do nosso sistema.</p>
+            </mat-card-content>
+            <mat-card-actions class="mt-10 flex justify-end transition">
+              <button [routerLink]="['/login']" class="bg-green-400 rounded-e p-3 ease-in text-white hover:font-extrabold hover:bg-green-600" mat-button>Aproveitar</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+}
+
+@if(error){
+    <div class="flex h-full justify-center items-center bg-red-200">
+
+        <mat-card class="p-5">
+            
+            <mat-card-header class="flex items-center justify-center flex-col-reverse">
+                <img src="../../../public/icons/error-email.png" class="mb-5" width="100">
+                <mat-card-title>Ops, parece que algo deu errado!</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mt-10 text-center">
+                <span>Detalhes do erro: </span>
+                <p>{{ errorMessage }}</p>
+            </mat-card-content>
+            <mat-card-actions class="mt-10 flex justify-end transition">
+              <button [routerLink]="['/login']" class="bg-red-400 rounded-e p-3 ease-in text-white hover:font-extrabold hover:bg-red-600" mat-button>Sair</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+}

@@ -1,0 +1,28 @@
+.btn-counter{
+  width: 30px;
+  height: 30px;
+  background-color: #e7e7e7;
+  border: #d6d6d6 1px solid;
+}
+
+.span-counter{
+  height: 30px;
+  width: 50px;
+  background-color: #e7e7e7;
+  border: #d6d6d6 1px solid;
+}
+
+.btn-remove{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 5px;
+
+  mat-icon{
+    color: white;
+  }
+
+}

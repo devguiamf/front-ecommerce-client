@@ -1,0 +1,14 @@
+<div class="w-full flex justify-between items-center">
+
+    <div class="flex items-center 1/2">
+      <img [ngSrc]="productSelected.image" width="100" height="70" alt="Imagem do produto {{productSelected.productName}}">
+      <span class="text-sm text-start">{{ productSelected.productName }}</span>
+    </div>
+
+    <div class="flex items-center w-1/2 justify-around">
+      <span class="text-sm ml-5">{{ productSelected.price | currency:'R$' }}</span>
+      <span class="text-sm">{{ productSelected.quantity }}</span>
+      <span class="text-sm">{{ productSelected.price * productSelected.quantity | currency:'R$' }}</span>
+    </div>
+
+</div>

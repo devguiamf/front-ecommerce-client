@@ -1,0 +1,72 @@
+<app-header
+  [userLogged]="userLogged"
+  [showSubNav]="false"
+>
+</app-header>
+
+<div class="p-10 flex justify-center flex-col bg-gray-100">
+
+  <div class="bg-white flex w-full p-5">
+
+    <div class="w-full content-start">
+      <img [src]="productDetails.image" class="w-full object-cover mx-auto">
+    </div>
+
+    <div class="w-full">
+
+      <p class="text-2xl font-bold">{{productDetails.name}}</p>
+
+      <div class=" mt-5 bg-gray-50 border order-solid border-gray-100">
+        <hr class="h-1 bg-blue-500 border-none">
+        <div class="p-5">
+          <div class="flex items-center justify-evenly w-2/5">
+            <p class="text-sm line-through text-gray-400 font-bold">
+              {{productDetails.price + (productDetails.price * 0.20) | currency:'R$' }}</p>
+            <p class="text-red-700 text-2xl font-bold">
+              {{productDetails.price | currency:'R$' }}
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mt-5 w-1/2">
+        <div class="default-infos">
+          <span class="span-default-info"> <mat-icon class="icon">sell</mat-icon> Cupom: </span>
+          <p class="p-1 bg-yellow-200"> 10 % OFF</p>
+        </div>
+        <div class="default-infos">
+          <span class="span-default-info"> <mat-icon class="icon">credit_card</mat-icon> Parcelamento: </span>
+          <p class="p-1 font-bold"> 12x sem juros</p>
+        </div>
+        <div class="default-infos">
+          <span class="span-default-info"> <mat-icon class="icon">local_shipping</mat-icon> Frete: </span>
+          <p class="p-1 font-bold"> Grátis</p>
+        </div>
+        <div class="default-infos">
+          <span class="span-default-info"> Quantidade:</span>
+          <div class="flex items-center">
+            <button class="btn-counter" (click)="decrementQuantityProduct()">-</button>
+            <div class="span-counter flex justify-center items-center">{{counterQuantityProduct}}</div>
+            <button class="btn-counter" (click)="incrementQuantityProduct()">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions-button">
+        <button class="btn-add-cart" (click)="addProductCart()">
+          <mat-icon class="mr-2">add_shopping_cart</mat-icon>
+          Adicionar ao carrinho
+        </button>
+        <button class="btn-buy" (click)="buyProduct()">Comprar Agora</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bg-white w-full p-5 mt-5">
+    <h5 class="text-xl font-bold">Descrição Do Produto</h5>
+    <p class="mt-5 indent-5">{{productDetails.description}}</p>
+  </div>
+
+</div>

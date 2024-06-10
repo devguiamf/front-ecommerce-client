@@ -1,0 +1,11 @@
+<div class="flex flex-col justify-center items-center">
+    <mat-icon aria-hidden="false" [matMenuTriggerFor]="menuAccount" class="text-white scale-125">account_circle</mat-icon>
+</div>
+<mat-menu #menuAccount="matMenu">
+    @for(accountOption of accountOptions; track accountOption.label){
+        <button (click)="selectAccountOption(accountOption)" [disabled]="!accountOption.enabled" mat-menu-item>
+            <mat-icon>{{accountOption.icon}}</mat-icon>
+            {{accountOption.label}}
+        </button>
+    }
+</mat-menu>

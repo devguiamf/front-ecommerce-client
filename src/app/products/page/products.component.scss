@@ -1,0 +1,57 @@
+.default-infos{
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+  color: #555555;
+  margin-bottom: 20px;
+
+  .span-default-info{
+    display: flex;
+    align-items: center;
+
+    .icon{
+      margin-right: 5px;
+    }
+  }
+
+  .btn-counter{
+    width: 30px;
+    height: 30px;
+    background-color: #e7e7e7;
+    border: #d6d6d6 1px solid;
+  }
+
+  .span-counter{
+    height: 30px;
+    width: 50px;
+    background-color: #e7e7e7;
+    border: #d6d6d6 1px solid;
+  }
+}
+
+.actions-button{
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 14px;
+
+  .btn-add-cart{
+    width: 50%;
+    height: 40px;
+    color: #3F83F8;
+    background-color: rgba(63, 131, 248, 0.44);
+    border: #3F83F8 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-buy{
+    width: 50%;
+    height: 40px;
+    background-color: #3F83F8;
+    color: white;
+    margin-left: 10px ;
+  }
+}

@@ -1,0 +1,70 @@
+<form [formGroup]="formAddress" class="relative">
+
+  @if(spinnerCEP){
+    <div class="overlay absolute">
+      <div class="spinner"></div>
+    </div>
+  }
+
+  <div class="w-full mx-1">
+    <label for="cep" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">CEP*</label>
+    <div class="mt-2">
+      <input id="cep" formControlName="cep" name="cep" type="text" autocomplete="cep" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+      @if (validatorFormField(formAddress, 'cep')){
+        <span class="text-red-500 text-xs">{{ getErrorMessage(formAddress, 'cep') }}</span>
+      }
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="w-1/2 mx-1">
+      <label for="number" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Numero*</label>
+      <div class="mt-2">
+        <input id="number" formControlName="number" name="number" type="text" autocomplete="number" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+        @if (validatorFormField(formAddress, 'number')){
+          <span class="text-red-500 text-xs">{{ getErrorMessage(formAddress, 'number') }}</span>
+        }
+      </div>
+    </div>
+    <div class="w-1/2 mx-1">
+      <label for="address" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Rua*</label>
+      <div class="mt-2">
+        <input id="address" formControlName="address" name="address" type="text" autocomplete="address" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+        @if (validatorFormField(formAddress, 'address')){
+          <span class="text-red-500 text-xs">{{ getErrorMessage(formAddress, 'address') }}</span>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="w-1/2 mx-1">
+      <label for="city" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Cidade*</label>
+      <div class="mt-2">
+        <input id="city" formControlName="city" name="city" type="text" autocomplete="city" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+        @if (validatorFormField(formAddress, 'city')){
+          <span class="text-red-500 text-xs">{{ getErrorMessage(formAddress, 'city') }}</span>
+        }
+      </div>
+    </div>
+    <div class="w-1/2 mx-1">
+      <label for="state" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Estado*</label>
+      <div class="mt-2">
+        <input id="state" formControlName="state" name="state" type="text" autocomplete="state" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+        @if (validatorFormField(formAddress, 'state')){
+          <span class="text-red-500 text-xs">{{ getErrorMessage(formAddress, 'state') }}</span>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-between items-center">
+    <button matStepperPrevious class="mt-1 bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded">
+      Voltar para conta
+    </button>
+
+    <button matStepperNext class="mt-5 bg-indigo-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
+      Finalizar
+    </button>
+  </div>
+</form>

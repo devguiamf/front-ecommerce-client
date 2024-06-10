@@ -1,0 +1,26 @@
+<app-header
+  [userLogged]="userLogged"
+  [showSubNav]="false"
+>
+</app-header>
+
+<div class="bg-gray-100 p-10">
+
+  <app-shipping-address
+    [userInfo]="userLogged">
+  </app-shipping-address>
+
+  <div class="mt-10">
+    <app-product-selected-list
+      [productsSelected]="productSelectedInfos">
+    </app-product-selected-list>
+  </div>
+
+  <div class="mt-10">
+    <app-payment
+      [productsSelected]="productSelectedInfos"
+      (finishBuyEvent)="receiveFinishBuyEvent()">
+    ></app-payment>
+  </div>
+
+</div>

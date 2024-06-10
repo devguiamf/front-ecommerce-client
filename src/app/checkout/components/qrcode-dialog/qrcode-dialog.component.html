@@ -1,0 +1,19 @@
+<div class="p-10 flex flex-col items-center">
+
+  <div class="close">
+    <mat-icon (click)="closeDialog()">close</mat-icon>
+  </div>
+
+  <div class="qrcode-header p-3">
+    <p class="text-lg text-center font-bold">Pague com PIX</p>
+    <hr>
+  </div>
+  <div class="qrcode-body p-3">
+    <img ngSrc="/public/qrcodes/qrcode-fatec.png" alt="QR Code" width="300" height="300">
+  </div>
+  <div class="qrcode-footer p-3">
+    <p class="text-sm">Escaneie o QR Code para pagar.</p>
+  </div>
+
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5" (click)="confirmPayment()">Confirmar pagamento</button>
+</div>

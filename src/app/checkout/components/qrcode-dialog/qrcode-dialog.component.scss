@@ -1,0 +1,14 @@
+.close{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1;
+  text-align: center;
+
+  mat-icon{
+    font-size: 20px;
+    color: red;
+  }
+}

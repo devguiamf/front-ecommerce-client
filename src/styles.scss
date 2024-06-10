@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+html, body { height: 100%; }
+body { margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.sucess-snackbar {
+    --mdc-snackbar-container-color: green;
+  --mat-snack-bar-button-color: #001e00;
+  --mdc-snackbar-supporting-text-color: white;
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: red;
+  --mat-snack-bar-button-color: #330000;
+  --mdc-snackbar-supporting-text-color: white;
+}
+
+:root {
+    --primary: #0080ff;
+    --secoundary: #FFDE00;
+    --default: #f3f4f6;
+    --text-default: #000;
+    --text-secoundary: #374151;
+}
+
+:root .dark-theme {
+    --bg-primary: #0080ff;
+    --bg-secoundary: #FFDE00;
+    --bg-default: #f3f4f6;
+    --text-default: #000;
+    --text-secoundary: #374151;
+}

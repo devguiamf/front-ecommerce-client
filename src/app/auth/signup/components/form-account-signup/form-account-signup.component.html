@@ -1,0 +1,63 @@
+<form [formGroup]="formAccount">
+  <div>
+    <label for="name" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Nome*</label>
+    <div class="mt-2">
+      <input id="name" formControlName="name" name="name" type="text" autocomplete="name" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+      @if (validatorFormField(formAccount, 'name')){
+        <span class="text-red-500 text-xs">{{getErrorFieldMessage('name')}}</span>
+      }
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="w-1/2 mx-1">
+      <label for="cpf" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">CPF*</label>
+      <div class="mt-2">
+        <input id="cpf" formControlName="cpf" name="cpf" type="text" autocomplete="cpf" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+        @if (validatorFormField(formAccount, 'cpf')){
+          <span class="text-red-500 text-xs">{{getErrorFieldMessage('cpf')}}</span>
+        }
+      </div>
+    </div>
+    <div class="w-1/2 mx-1">
+      <label for="phone" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Telefone*</label>
+      <div class="mt-2">
+        <input id="phone" formControlName="phone" name="phone" type="text" autocomplete="phone" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+        @if (validatorFormField(formAccount, 'phone')){
+          <span class="text-red-500 text-xs">{{ getErrorFieldMessage('phone') }}</span>
+        }
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w-full mx-1">
+    <label for="email" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Email*</label>
+    <div class="mt-2">
+      <input id="email" formControlName="email" name="email" type="email" autocomplete="email" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+      @if (validatorFormField(formAccount, 'email')){
+        <span class="text-red-500 text-xs">{{ getErrorFieldMessage('email') }}</span>
+      }
+    </div>
+  </div>
+  <div class="w-full mx-1">
+    <label for="password" class="text-gray-900 dark:text-gray-200 text-lg font-medium title-font mb-5">Senha*</label>
+    <div class="mt-2">
+      <input id="password" formControlName="password" name="password" [type]="inputPasswordType" autocomplete="current-password" required class="w-full bg-white dark:bg-slate-900 rounded border border-gray-300 dark:border-slate-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 dark:text-gray-200 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+      @if (validatorFormField(formAccount, 'password')){
+        <span class="text-red-500 text-xs">{{ getErrorFieldMessage('password') }}</span>
+      }
+    </div>
+    <div class="mt-2 flex items-center">
+      <input id="showPassword" type="checkbox" (change)="showPassword()" class="w-4 h-4 mr-2" />
+      <label for="showPassword" class="text-gray-900 dark:text-gray-200 text-sm font-medium title-font">Mostrar senha</label>
+    </div>
+  </div>
+
+
+  <div>
+    <button matStepperNext class="mt-5 bg-indigo-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
+      Ir para endereço
+    </button>
+  </div>
+</form>

@@ -1,0 +1,33 @@
+<div>
+  <div class="flex justify-around items-center p-3">
+
+    <input class="cursor-pointer" type="checkbox" [(ngModel)]="cartItem.checked" (click)="selectItemToBuy()" >
+
+    <div class="flex">
+      <img
+        [ngSrc]="cartItem.image"
+        width="100"
+        height="100"
+        alt="product image"
+      />
+      <span class="mr-3 w-3/5">{{ cartItem.productName }}</span>
+    </div>
+
+    <p class="text-lg font-semibold">{{ cartItem.price | currency: 'R$' }}</p>
+
+    <div class="flex items-center ml-10">
+      <button class="btn-counter" (click)="decrementQuantityProduct()">-</button>
+      <div class="span-counter flex justify-center items-center">{{quantityItem}}</div>
+      <button class="btn-counter" (click)="incrementQuantityProduct()">+</button>
+    </div>
+
+    <span class="text-lg font-semibold">{{ totalItem | currency: 'R$' }}</span>
+
+    <button class="btn-remove">
+      <mat-icon (click)="removeItem()">delete</mat-icon>
+    </button>
+  </div>
+
+  <hr class="my-4" />
+
+</div>

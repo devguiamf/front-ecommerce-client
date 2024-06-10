@@ -1,0 +1,13 @@
+<mat-card class="product-card cursor-pointer">
+    <mat-card-header class="flex justify-center items-center p-0 m-0">
+        <img mat-card-image [ngSrc]="product.image" class="object-cover mx-auto" width='1280' height='720' alt="Photo of a Shiba Inu">
+    </mat-card-header>
+
+    <mat-card-title class="p-5">
+      <p class="text-sm">{{product.name | truncate:40}}</p>
+    </mat-card-title>
+
+    <mat-card-content class="px-5">
+        <span class="text-sm text-red-700 font-bold">{{product.price | currency:'R$' }}</span>
+    </mat-card-content>
+</mat-card>

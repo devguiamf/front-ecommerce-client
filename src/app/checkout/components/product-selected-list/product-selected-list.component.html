@@ -1,0 +1,22 @@
+<div class="w-full bg-white p-5 border-t border-dashed border-blue-500">
+
+  <div class="w-full flex justify-between items-center p-3">
+    <div class="flex justify-center items-center 1/2">
+      <span class="item-header">Produto</span>
+    </div>
+
+    <div class="flex items-center w-1/2 justify-around">
+      <span class="item-header">Preço</span>
+      <span class="item-header">Quantidade</span>
+      <span class="item-header">Sub Total</span>
+    </div>
+  </div>
+
+  <hr>
+
+  @for(product of productsSelected; track $index){
+    <app-product-selected
+      [productSelected]="product">
+    </app-product-selected>
+  }
+</div>

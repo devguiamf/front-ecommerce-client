@@ -1,0 +1,27 @@
+<app-header class="w-full"
+            [userLogged]="userLogged"
+            [categoryMenuOptions]="categories"
+></app-header>
+
+<div class="p-10 bg-gray-200 flex flex-col items-center min-h-full">
+
+  <div class="w-4/5 h-full">
+
+    <p>{{productPaginator.total}} produtos encontrados.</p>
+
+    @if(productPaginator && productPaginator.items.length > 0){
+      <app-product-list
+        [productsItems]="productPaginator.items">
+      </app-product-list>
+
+      <div class="mt-5">
+        <app-paginator
+          [totalItems]="productPaginator.total"
+          (changePage)="changePageProps($event)"
+        ></app-paginator>
+      </div>
+    }
+  </div>
+</div>
+
+<app-footer class="w-full mt-10 relative bottom-0"></app-footer>

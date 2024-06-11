@@ -9,6 +9,8 @@ import { ProductItemCardComponent } from '../products/components/product-list/pr
 import {ProductsModule} from "../products/products.module";
 import {MatPaginator} from "@angular/material/paginator";
 import {AppModule} from "../app.module";
+import {PaginatorComponent} from "../@shared/components/paginator/paginator.component";
+import {FooterComponent} from "../fixed/footer/footer.component";
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import {AppModule} from "../app.module";
     CarouselComponent,
     ProductItemCardComponent,
     ProductsModule,
-    MatPaginator
+    MatPaginator,
+    PaginatorComponent,
+    FooterComponent
   ]
 })
 export class ShopModule { }

@@ -15,14 +15,7 @@ export class ShoppingCartService {
   ) { }
 
   addCartItemToBehaviorList$(item: CartItem) {
-    // const productExist = this.verifyExistenceProductInCart(item);
-    //
-    // if(productExist){
-    //   this.addCartExistenceItemsToBehaviorList$(productExist);
-    //   return;
-    // }
-
-    const currentValue = this.listCartItems$.value;
+    const currentValue = this.localStorageService.get(StorageKeys.cart_items) ?? [];
     const updatedValue = [...currentValue, item];
     this.listCartItems$.next(updatedValue);
     this.localStorageService.set(StorageKeys.cart_items, updatedValue);
@@ -53,8 +46,8 @@ export class ShoppingCartService {
   }
 
   removeCartItemFromBehaviorList$(productId: string) {
-    const currentValue = this.listCartItems$.value;
-    const updatedValue = currentValue.filter(item => item.productId !== productId);
+    const currentValue = this.localStorageService.get(StorageKeys.cart_items) ?? [];
+    const updatedValue = currentValue.filter((item: any) => item.productId !== productId);
     this.listCartItems$.next(updatedValue);
     this.localStorageService.set(StorageKeys.cart_items, updatedValue);
   }

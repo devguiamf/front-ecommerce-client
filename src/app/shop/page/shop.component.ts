@@ -6,6 +6,7 @@ import { ProductService } from '../../products/service/product.service';
 import {CategoryMenuOptions, RootCategoriesService} from "../../@shared/services/root-categories.service";
 import {Subject, takeUntil} from "rxjs";
 import {Paginator} from "../../@shared/util/pagination/paginator";
+import {PageChange} from "../../@shared/components/paginator/paginator.component";
 
 @Component({
   selector: 'app-shop',
@@ -16,7 +17,6 @@ export class ShopComponent {
 
   destroy$: Subject<void> = new Subject<void>();
   userLogged: UserLoggeed | null = null;
-  productsItems!: Product[];
   categories!: CategoryMenuOptions[];
   paginationsOptions: Paginator = new Paginator({page: 1, limit: 10})
   productPaginator!: ProductPage;
@@ -44,14 +44,9 @@ export class ShopComponent {
       });
   }
 
-  changePageProps(event: any) {
+  changePageProps(event: PageChange) {
     this.paginationsOptions.page = event.page;
     this.paginationsOptions.limit = event.limit;
-    this.searchProductsShowcase();
-  }
-
-  viewMoreProducts() {
-    this.paginationsOptions.nextPage();
     this.searchProductsShowcase();
   }
 

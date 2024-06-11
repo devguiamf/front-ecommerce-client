@@ -7,5 +7,5 @@ import {Product} from "../../product.interface";
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  @Input({required: true}) productsItems!: Product[]
+  @Input() productsItems!: Product[]
 }

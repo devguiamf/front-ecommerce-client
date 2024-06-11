@@ -10,6 +10,7 @@ import { CategoryMenuOptions, RootCategoriesService } from '../../@shared/servic
 import {ShoppingCartService} from "../../shopping-cart/service/shopping-cart.service";
 import {take} from "rxjs";
 import {LocalStorageService, StorageKeys} from "../../@shared/services/local-storage.service";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -19,13 +20,14 @@ import {LocalStorageService, StorageKeys} from "../../@shared/services/local-sto
     standalone: true,
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
-    imports: [
-        RouterLink,
-        MatIcon,
-        MatBadgeModule,
-        MatMenuModule,
-        AccountMenuComponent
-    ]
+  imports: [
+    RouterLink,
+    MatIcon,
+    MatBadgeModule,
+    MatMenuModule,
+    AccountMenuComponent,
+    FormsModule
+  ]
 })
 export class HeaderComponent {
 
@@ -33,6 +35,7 @@ export class HeaderComponent {
   @Input() showSubNav: boolean = true;
   @Input() categoryMenuOptions: CategoryMenuOptions[] = [];
 
+  searchString: string = '';
   badge: string = '0';
 
   constructor(
@@ -63,5 +66,28 @@ export class HeaderComponent {
       return;
     }
     await this.router.navigate(['/shopping-cart']);
+  }
+
+  async searchProductsBySubCategory(subCategory: any){
+    await this.router.navigate(['/shop-search'], {
+      queryParams: {
+        name: subCategory.name,
+        subCategoryId: subCategory.id
+      }
+    });
+  }
+
+  async onEnterSearch(){
+    if(this.searchString){
+      await this.router.navigate(['/shop-search'], {
+        queryParams: {
+          product: this.searchString,
+          name: this.searchString
+        }
+      });
+      return;
+    }
+
+    await this.router.navigate(['/shop-search']);
   }
 }

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [

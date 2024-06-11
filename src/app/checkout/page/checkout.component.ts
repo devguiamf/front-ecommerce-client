@@ -6,6 +6,10 @@ import {CartItem} from "../../shopping-cart/shopping-cart.interface";
 import {MatDialog} from "@angular/material/dialog";
 import {QrcodeDialogComponent} from "../components/qrcode-dialog/qrcode-dialog.component";
 import {Subject, takeUntil} from "rxjs";
+import {CheckoutService} from "../service/checkout.service";
+import {Checkout} from "../checkout.interface";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {SnackBarNotificationService} from "../../@shared/services/snack-bar-notification.service";
 
 @Component({
   selector: 'app-checkout',
@@ -21,7 +25,9 @@ export class CheckoutComponent implements  OnDestroy {
   constructor(
     private router: Router,
     private localStorage: LocalStorageService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private checkoutService: CheckoutService,
+    private snakbarService: SnackBarNotificationService
   ) {
     this.userLogged = this.localStorage.get(StorageKeys.user_logged_info);
     this.receiveDataFromPreviousPage();
@@ -40,11 +46,40 @@ export class CheckoutComponent implements  OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe(async (value: boolean) => {
         if(value) {
-          this.removeItemCartFromLocalStorage();
-          await this.router.navigate(['/shop']);
+          this.sendBuyService();
         }
         return;
       });
+  }
+
+  sendBuyService() {
+    const checkoutData = this.mountCheckoutData();
+    this.checkoutService.finishCheckout(checkoutData)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: async () => {
+          this.removeItemCartFromLocalStorage();
+          await this.router.navigate(['/shop']);
+        },
+        error: async (error) => {
+          console.log('Error finish buy: ', error)
+          this.snakbarService.openErrorSnackBar('Erro ao finalizar compra: ' + error.error.message);
+        }
+      })
+  }
+
+  mountCheckoutData(): Checkout {
+    const items = this.productSelectedInfos.map(
+      product => ({productId: product.productId, quantity: product.quantity})
+    )
+    return {
+      cartItems: items,
+      deliveryAddress: this.userLogged.address,
+      paymentMethod: "pix",
+      paymentDetails: {
+        customerKey: "legostartbr@gmail.com"
+      }
+    }
   }
 
   removeItemCartFromLocalStorage() {

@@ -22,8 +22,14 @@
           [productsItems]="productPaginator.items">
         </app-product-list>
 
-        <div class="flex w-full justify-center mt-5">
+        <div class="w-full mt-5">
+          <app-paginator
+            [totalItems]="productPaginator.total"
+            (changePage)="changePageProps($event)"
+          ></app-paginator>
        </div>
    </div>
+
+    <app-footer class="w-full mt-10"></app-footer>
 
 </div>

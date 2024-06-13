@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Product, ProductItemResume } from '../../../product.interface';
 import { MatCardModule } from '@angular/material/card';
 import { TruncatePipe } from '../../../../@shared/pipes/truncate.pipe';
@@ -16,6 +16,6 @@ import {CurrencyPipe, NgOptimizedImage} from '@angular/common';
     NgOptimizedImage
   ]
 })
-export class ProductItemCardComponent {
+export class ProductItemCardComponent{
   @Input({required: true}) product!: Product
 }

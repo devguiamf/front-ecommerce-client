@@ -4,9 +4,9 @@
 >
 </app-header>
 
-<div class="bg-gray-100 p-10 h-full">
+<div class="bg-gray-100 p-10">
 
-  <div class="w-full bg-white">
+  <div class="w-full bg-white mb-5">
     @if(hasItemInCart) {
       <app-list-cart-items
         [cartItems]="cartItems"
@@ -22,6 +22,19 @@
     } @else{
       <app-empty-cart-message></app-empty-cart-message>
     }
+  </div>
+
+
+  
+  <div class="p-3 bg-white overflow-y-auto">
+    <p class="mb-2 font-lg">Você também pode gostar</p>
+    <div class="flex items-center justify-evenly">
+      @for (productRecomend of prodcutsRecomendation; track $index) {
+        <app-product-item-card
+          [product]="productRecomend">
+        </app-product-item-card>
+      }
+    </div>
   </div>
 
 </div>

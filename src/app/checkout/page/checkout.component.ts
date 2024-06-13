@@ -10,6 +10,7 @@ import {CheckoutService} from "../service/checkout.service";
 import {Checkout} from "../checkout.interface";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {SnackBarNotificationService} from "../../@shared/services/snack-bar-notification.service";
+import { Product } from '../../products/product.interface';
 
 @Component({
   selector: 'app-checkout',
@@ -21,6 +22,7 @@ export class CheckoutComponent implements  OnDestroy {
   userLogged: UserLoggeed
   productSelectedInfos!: CartItem[];
   destroy$: Subject<void> = new Subject<void>();
+  
 
   constructor(
     private router: Router,
@@ -59,10 +61,10 @@ export class CheckoutComponent implements  OnDestroy {
       .subscribe({
         next: async () => {
           this.removeItemCartFromLocalStorage();
+          this.snakbarService.openSuccessSnackBar('Compra finalizada com sucesso!');
           await this.router.navigate(['/shop']);
         },
         error: async (error) => {
-          console.log('Error finish buy: ', error)
           this.snakbarService.openErrorSnackBar('Erro ao finalizar compra: ' + error.error.message);
         }
       })

@@ -56,7 +56,7 @@ export class AccountMenuComponent {
   }
 
   goToMyOrders() {
-    return this.router.navigate(['/account']);
+    return this.router.navigate(['/user-orders']);
   }
 
   singOut() {    

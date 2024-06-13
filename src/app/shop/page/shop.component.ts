@@ -19,7 +19,7 @@ export class ShopComponent {
   userLogged: UserLoggeed | null = null;
   categories!: CategoryMenuOptions[];
   paginationsOptions: Paginator = new Paginator({page: 1, limit: 10})
-  productPaginator!: ProductPage;
+  productPaginator: ProductPage = {items: [], total: 0, page: 0, currentPage: 0};
 
   constructor(
       private localStorage: LocalStorageService,
@@ -69,11 +69,4 @@ export class ShopComponent {
         this.localStorage.set(StorageKeys.category_menu_list, this.categories);
       });
   }
-}
-
-interface PageEvent {
-  length: number;
-  pageIndex: number;
-  pageSize: number;
-  previousPageIndex: number;
 }

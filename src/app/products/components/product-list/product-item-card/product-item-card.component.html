@@ -1,6 +1,6 @@
 <mat-card class="product-card cursor-pointer">
     <mat-card-header class="flex justify-center items-center p-0 m-0">
-        <img mat-card-image [ngSrc]="product.image" class="object-cover mx-auto" width='1280' height='720' alt="Photo of a Shiba Inu">
+        <img mat-card-image [ngSrc]="product.image" class="object-cover mx-auto" width='1280' height='720' [alt]="'Foto do produto {{product.name}}'">
     </mat-card-header>
 
     <mat-card-title class="p-5">
@@ -8,6 +8,6 @@
     </mat-card-title>
 
     <mat-card-content class="px-5">
-        <span class="text-sm text-red-700 font-bold">{{product.price | currency:'R$' }}</span>
+        <span class="text-sm text-red-700 font-bold">{{product.price | currency:'BRL' }}</span>
     </mat-card-content>
 </mat-card>

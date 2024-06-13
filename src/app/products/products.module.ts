@@ -23,7 +23,8 @@ import {MatIcon} from "@angular/material/icon";
     MatIcon
   ],
   exports: [
-    ProductListComponent
+    ProductListComponent,
+    ProductItemCardComponent
   ],
   providers: [
     ProductService

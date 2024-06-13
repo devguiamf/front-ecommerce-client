@@ -6,7 +6,7 @@ export interface Product {
     category: {
         id: string,
         name: string,
-        rootCategory: {
+        rootCategory?: {
             id: string,
             name: string,
             description: string

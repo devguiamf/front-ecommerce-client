@@ -1,9 +1,10 @@
 <div class="grid grid-cols-5 gap-5">
-  @for(product of productsItems; track product.id){
-    <app-product-item-card
-      [product]="product"
-      [routerLink]="['/product', product.category.rootCategory.name, product.category.name, product.id]"
-    ></app-product-item-card>
-  }
+    @for(product of productsItems; track product.id){
+        <app-product-item-card
+        [product]="product"
+        [routerLink]="['/product', product.category.rootCategory?.name, product.category.name, product.id]"
+        ></app-product-item-card>
+    }
 </div>
+
 

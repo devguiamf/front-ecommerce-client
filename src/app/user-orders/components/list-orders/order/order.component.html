@@ -1,0 +1,72 @@
+<mat-accordion>
+    <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon class="mr-1">inventory</mat-icon>
+                Pedido #{{order.orderId | truncate:7}}
+            </mat-panel-title>
+            <mat-panel-description>
+                <mat-icon class="mr-1">calendar_month</mat-icon>
+                Data: {{order.date | date:'dd/MM/yyyy'}}
+            </mat-panel-description>
+
+            <mat-panel-description>
+                <mat-icon class="mr-1">payments</mat-icon>
+                Total: {{order.totalAmount | currency:'BRL'}}
+            </mat-panel-description>
+
+            <mat-panel-description>
+                <mat-icon class="mr-1">help</mat-icon>
+                Status: {{order.status}}
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+
+        <div class="flex">
+            <div class="w-full m-1 p-5 bg-gray-50 rounded-md border border-solid border-gray-300">
+                <span class="text-center text-lg underline flex justify-center items-center mb-5"> 
+                    <mat-icon class="mr-3">credit_card</mat-icon> 
+                    Informações do pagamento
+                </span>
+                <p><strong>Forma de pagamento:</strong> {{order.paymentMethod}}</p>
+                <p><strong>Detalhes:</strong> {{order.paymentDetails.customerKey}}</p>
+                
+            </div>
+
+            <div class="w-full m-1 p-5 bg-gray-50 rounded-md border border-solid border-gray-300">
+                <span class="text-center text-lg underline flex justify-center items-center mb-5"> 
+                    <mat-icon class="mr-3">local_shipping</mat-icon> 
+                    Endereço de Entrega
+                </span>
+                <p><strong>Usuário:</strong> {{userInfoLine}}</p>
+                <p><strong>Endereço:</strong> {{addressInfoLine}}</p>
+            </div>    
+        </div>
+
+        <div class="rounded-md border border-solid border-gray-300 p-5">
+            <p class="text-center text-lg underline">PRODUTOS</p>
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th class="p-2">Produto</th>
+                        <th class="p-2">Quantidade</th>
+                        <th class="p-2">Preço</th>
+                        <th class="p-2">total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (product of order.items; track product.productId){
+                        <tr>
+                            <td class="p-2 text-center">{{product.productName}}</td>
+                            <td class="p-2 text-center">{{product.quantity}}</td>
+                            <td class="p-2 text-center">{{product.unitPrice| currency:'BRL'}}</td>
+                            <td class="p-2 text-center">{{product.totalAmount | currency:'BRL'}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

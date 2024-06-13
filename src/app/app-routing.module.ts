@@ -43,7 +43,14 @@ const routes: Routes = [
     path: 'shopping-cart', 
     loadChildren: () => import('./shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule) 
   },
-  { path: 'shop-search', loadChildren: () => import('./shop-search/shop-search.module').then(m => m.ShopSearchModule) }
+  { 
+    path: 'shop-search', 
+    loadChildren: () => import('./shop-search/shop-search.module').then(m => m.ShopSearchModule) 
+  },
+  { 
+    path: 'user-orders', 
+    loadChildren: () => import('./user-orders/user-orders.module').then(m => m.UserOrdersModule)
+  }
   ];
 
 @NgModule({

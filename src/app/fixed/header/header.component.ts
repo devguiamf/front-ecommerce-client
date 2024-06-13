@@ -8,7 +8,6 @@ import { AccountMenuComponent } from '../account-menu/account-menu.component';
 import { UserLoggeed } from '../../@shared/interfaces/user.interface';
 import { CategoryMenuOptions, RootCategoriesService } from '../../@shared/services/root-categories.service';
 import {ShoppingCartService} from "../../shopping-cart/service/shopping-cart.service";
-import {take} from "rxjs";
 import {LocalStorageService, StorageKeys} from "../../@shared/services/local-storage.service";
 import {FormsModule} from "@angular/forms";
 

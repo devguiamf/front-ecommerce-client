@@ -41,7 +41,7 @@ export class SignupComponent implements OnDestroy{
           this.snackBarService.openSuccessSnackBar('Cadastro realizado com sucesso!');
           this.router.navigate(['/home']);
         },
-        error: (error) => {
+        error: (error) => {          
           this.snackBarService.openErrorSnackBar('Erro ao cadastrar usuário: ' + (error.error.message ?? 'Erro desconhecido'));
         }
       });
@@ -49,17 +49,17 @@ export class SignupComponent implements OnDestroy{
 
   buildCredentials(){
     return {
-      email: "string",
-      password: "string",
-      name: "string",
-      cpf: "string",
-      phone: "string",
+      email: this.formAccount.get('email')?.value,
+      password: this.formAccount.get('password')?.value,
+      name: this.formAccount.get('name')?.value,
+      cpf: this.formAccount.get('cpf')?.value,      
+      phone: this.formAccount.get('phone')?.value,
       address: {
-        cep: "string",
-        address: "string",
-        number: "string",
-        state: "string",
-        city: "string",
+        cep: this.formAddress.get('cep')?.value,
+        address: this.formAddress.get('address')?.value,
+        number: this.formAddress.get('number')?.value,
+        state: this.formAddress.get('state')?.value,
+        city: this.formAddress.get('city')?.value,
       }
     }
   }

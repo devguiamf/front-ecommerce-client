@@ -7,6 +7,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserLoggeed} from "../../../@shared/interfaces/user.interface";
 import {environment} from "../../../../environments/environment.development";
+import { ErrorApiResponse } from '../../../@shared/util/pagination/error.interface';
 
 
 @Component({
@@ -55,9 +56,9 @@ export class LoginComponent implements OnInit{
 
           await this.router.navigate(['/shop']);
         },
-        error: (error: HttpErrorResponse) => {
+        error: (error: ErrorApiResponse) => {
           this.deactivateLoading()
-          this.snackBarService.openErrorSnackBar('Erro ao entrar: ' + (error.error.message ?? 'Erro desconhecido'))
+          this.snackBarService.openErrorSnackBar(error.error.details)
         },
       });
   }

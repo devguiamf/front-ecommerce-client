@@ -10,6 +10,7 @@ import {MatIcon} from "@angular/material/icon";
 import { ProductSelectedListComponent } from './components/product-selected-list/product-selected-list.component';
 import { ProductSelectedComponent } from './components/product-selected-list/product-selected/product-selected.component';
 import { QrcodeDialogComponent } from './components/qrcode-dialog/qrcode-dialog.component';
+import { ProductsModule } from '../products/products.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { QrcodeDialogComponent } from './components/qrcode-dialog/qrcode-dialog.
     CheckoutRoutingModule,
     HeaderComponent,
     MatIcon,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ProductsModule
   ]
 })
 export class CheckoutModule { }

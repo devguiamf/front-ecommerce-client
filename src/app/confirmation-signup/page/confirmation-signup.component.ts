@@ -22,10 +22,12 @@ export class ConfirmationSignupComponent {
     private route: Router,
     private confirmationEmailService: ConfirmationSignupService
   ) {
-    // this.verifyTokenConfirmation();
+    this.verifyTokenConfirmation();
   }
 
   verifyTokenConfirmation() {
+    console.log('verifyTokenConfirmation');
+    
     this.routerActivate.queryParams.subscribe(params => {
       this.token = params['token'];
       if (!this.token) {
@@ -33,7 +35,6 @@ export class ConfirmationSignupComponent {
         this.route.navigate(['/login']);
         return
       }
-
       this.confirmEmail();
     });
   }

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  frontecommerceclient:
+    image: frontecommerceclient
+    build: .
+    ports:
+      - 8090:80

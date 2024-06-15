@@ -1,10 +1,10 @@
 <mat-card class="product-card cursor-pointer">
     <mat-card-header class="flex justify-center items-center p-0 m-0">
-        <img mat-card-image [ngSrc]="product.image" class="object-cover mx-auto" width='1280' height='720' [alt]="'Foto do produto {{product.name}}'">
+        <img mat-card-image [ngSrc]='product.image === "" ? "/public/icons/not-found.jpg" : product.image' class="object-cover mx-auto" width='1280' height='720' [alt]="'Foto do produto {{product.name}}'">
     </mat-card-header>
 
-    <mat-card-title class="p-5">
-      <p class="text-sm">{{product.name | truncate:40}}</p>
+    <mat-card-title class="p-5 max-h-16">
+      <p class="text-sm">{{product.name | truncate:30}}</p>
     </mat-card-title>
 
     <mat-card-content class="px-5">

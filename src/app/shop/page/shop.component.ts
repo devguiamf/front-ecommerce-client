@@ -39,8 +39,13 @@ export class ShopComponent {
     const query = this.paginationsOptions.toQueryString();
     this.productService.getProductsShowcaseHttp(query)
       .pipe(takeUntil(this.destroy$))
-      .subscribe((response) => {
-        this.productPaginator = response
+      .subscribe({
+        next: (response) => {
+          this.productPaginator = response;
+        },
+        error: (error) => {
+          console.error('Error to search products: ', error);
+        }
       });
   }
 

@@ -4,9 +4,10 @@ export interface Order {
         {
             productId: string,
             productName: string,
+            productImage: string,
             quantity: number,
-            unitPrice: number,
-            totalAmount: number
+            price: number,
+            total: number
         }
     ],
     paymentMethod: string,

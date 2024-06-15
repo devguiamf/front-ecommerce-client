@@ -11,6 +11,7 @@ import { ProductSelectedListComponent } from './components/product-selected-list
 import { ProductSelectedComponent } from './components/product-selected-list/product-selected/product-selected.component';
 import { QrcodeDialogComponent } from './components/qrcode-dialog/qrcode-dialog.component';
 import { ProductsModule } from '../products/products.module';
+import { TruncatePipe } from '../@shared/pipes/truncate.pipe';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ProductsModule } from '../products/products.module';
     HeaderComponent,
     MatIcon,
     NgOptimizedImage,
-    ProductsModule
+    ProductsModule,
+    TruncatePipe
   ]
 })
 export class CheckoutModule { }

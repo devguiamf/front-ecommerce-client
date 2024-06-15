@@ -12,6 +12,8 @@ import {MatIcon} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import { EmptyCartMessageComponent } from './components/empty-cart-message/empty-cart-message.component';
 import { ProductItemCardComponent } from '../products/components/product-list/product-item-card/product-item-card.component';
+import { ProductsModule } from '../products/products.module';
+import { SpinnerComponent } from '../@shared/components/spinner/spinner.component';
 
 
 @NgModule({
@@ -29,8 +31,9 @@ import { ProductItemCardComponent } from '../products/components/product-list/pr
     MatChipTrailingIcon,
     MatIcon,
     FormsModule,
-    ProductItemCardComponent
-  ],
+    ProductsModule,
+    SpinnerComponent
+    ],
   providers: [
     ShoppingCartService
   ]

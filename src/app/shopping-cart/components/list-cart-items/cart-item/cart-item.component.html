@@ -4,12 +4,11 @@
     <input class="cursor-pointer" type="checkbox" [(ngModel)]="cartItem.checked" (click)="selectItemToBuy()" >
 
     <div class="flex items-center">
-      <img
-        [ngSrc]="cartItem.image"
+      <img 
+        [ngSrc]='cartItem.image === "" ? "/public/icons/not-found.jpg" : cartItem.image' width="400" 
         width="100"
         height="100"
-        alt="product image"
-      />
+        alt="product image">
       <span class="ml-3 w-3/5">{{ cartItem.productName }}</span>
     </div>
 

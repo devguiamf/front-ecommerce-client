@@ -5,7 +5,7 @@ import {ShoppingCartService} from "../service/shopping-cart.service";
 import {CartItem} from "../shopping-cart.interface";
 import {Subject, takeUntil} from "rxjs";
 import {Router} from "@angular/router";
-import { Product } from '../../products/product.interface';
+import { Product, ProductRecommendationPage } from '../../products/product.interface';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -19,6 +19,7 @@ export class ShoppingCartComponent implements OnDestroy{
   itemSelected: CartItem[] = [];
   destroy$: Subject<void> = new Subject<void>();
   prodcutsRecomendation: Product[] = []
+  loading = false;
 
   constructor(
     private localStorage: LocalStorageService,
@@ -26,16 +27,24 @@ export class ShoppingCartComponent implements OnDestroy{
     private router: Router,
   ) {
     this.verifyUserLogged();
-    this.observeBehaviorCartItems();
-    this.getProductsRecomendation()
+    this.getCartListItem();
+    this.getProductsRecomendation();
   }
 
-  getProductsRecomendation(){
-    this.shoppingCartService.getProductsRecomendation()
+  getProductsRecomendation(){    
+    this.loading = true;
+    this.shoppingCartService.getProductsRecomendation(this.cartItems[0].productId)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response) => {
-          this.prodcutsRecomendation = response
+          console.log('Products recomendation: ', response);
+          this.prodcutsRecomendation = response.items;
+          this.loading = false;
+        },
+        error: (error) => {
+          this.prodcutsRecomendation = [];
+          console.error('Error to get products recomendation: ', error);
+          this.loading = false;
         }
       })
   }
@@ -49,14 +58,8 @@ export class ShoppingCartComponent implements OnDestroy{
     return this.cartItems.length > 0;
   }
 
-  observeBehaviorCartItems() {
-    this.shoppingCartService.listCartItems$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (response) => {
-          this.cartItems = response;
-        }
-    })
+  getCartListItem() {
+    this.cartItems = this.localStorage.get(StorageKeys.cart_items) ?? [];
   }
 
   removeItem(productId: string) {

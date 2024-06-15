@@ -34,6 +34,8 @@ export class UserOrdersComponent implements OnDestroy {
       .subscribe({
         next: (response) => {
           this.ordersPage = response;
+          console.log('Orders: ', this.ordersPage);
+          
         }
       })
   }

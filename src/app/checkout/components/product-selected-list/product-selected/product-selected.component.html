@@ -1,8 +1,8 @@
 <div class="w-full flex justify-between items-center">
 
-    <div class="flex items-center 1/2">
-      <img [ngSrc]="productSelected.image" width="100" height="70" alt="Imagem do produto {{productSelected.productName}}">
-      <span class="text-sm text-start">{{ productSelected.productName }}</span>
+    <div class="flex items-start 1/2">
+      <img [ngSrc]='productSelected.image === "" ? "/public/icons/not-found.jpg" : productSelected.image' width="100" height="70" alt="Imagem do produto {{productSelected.productName}}">
+      <span class="text-md ml-5 mt-5">{{ productSelected.productName | truncate:40 }}</span>
     </div>
 
     <div class="flex items-center w-1/2 justify-around">

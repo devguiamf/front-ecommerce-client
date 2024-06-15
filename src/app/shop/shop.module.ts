@@ -22,7 +22,6 @@ import {FooterComponent} from "../fixed/footer/footer.component";
     ShopRoutingModule,
     HeaderComponent,
     CarouselComponent,
-    ProductItemCardComponent,
     ProductsModule,
     MatPaginator,
     PaginatorComponent,

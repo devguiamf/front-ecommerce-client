@@ -4,7 +4,7 @@
 >
 </app-header>
 
-<div class="bg-gray-100 p-10">
+<div class="bg-gray-100 p-10 min-h-full">
 
   <div class="w-full bg-white mb-5">
     @if(hasItemInCart) {
@@ -27,14 +27,24 @@
 
   
   <div class="p-3 bg-white overflow-y-auto">
-    <p class="mb-2 font-lg">Você também pode gostar</p>
-    <div class="flex items-center justify-evenly">
-      @for (productRecomend of prodcutsRecomendation; track $index) {
-        <app-product-item-card
-          [product]="productRecomend">
-        </app-product-item-card>
-      }
-    </div>
+    <p class="mb-2 font-lg font-bold">Você também pode gostar</p>
+    @if(loading){
+      <div class="flex items-center justify-center">
+        <app-spinner></app-spinner>
+      </div>
+    }
+    @if(prodcutsRecomendation.length > 0){
+      <div class="flex items-center justify-evenly">
+        @for (productRecomend of prodcutsRecomendation; track $index) {
+          <app-product-item-card
+            [product]="productRecomend">
+          </app-product-item-card>
+        }
+      </div>
+    }
+    @if(prodcutsRecomendation.length === 0 && !loading){
+      <p class="text-center">Nenhum produto recomendado</p>
+    }
   </div>
 
 </div>

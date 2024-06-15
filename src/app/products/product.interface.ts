@@ -28,3 +28,7 @@ export interface ProductPage {
     total: number,
     currentPage: number
 }
+
+export interface ProductRecommendationPage {
+    items: Product[]
+}

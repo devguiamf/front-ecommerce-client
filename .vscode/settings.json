@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/1be23e10-8579-4441-bddd-3f28962dce60/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/ecommerce-client-pialabs",
+    "appService.deploySubpath": "."
+}
